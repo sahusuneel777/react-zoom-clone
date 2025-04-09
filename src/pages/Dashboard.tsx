@@ -1,5 +1,5 @@
 import React from "react";
-import { EuiCard, EuiFlexGroup, EuiFlexItem, EuiImage } from "@elastic/eui";
+import { EuiCard, EuiFlexGroup,EuiBottomBar, EuiFlexItem, EuiImage } from "@elastic/eui";
 import { useNavigate } from "react-router-dom";
 import dashboard1 from "../assets/dashboard1.png";
 import dashboard2 from "../assets/dashboard2.png";
@@ -54,6 +54,11 @@ function Dashboard() {
             />
           </EuiFlexItem>
         </EuiFlexGroup>
+        <EuiBottomBar paddingSize="s">
+        <div style={{ width: "100%", textAlign: "center" }}>
+        <strong>Design and developed by Suneel.</strong>
+        </div>
+      </EuiBottomBar>
       </div>
     </>
   );
