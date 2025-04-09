@@ -18,8 +18,9 @@ import { collection, getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// console.log("first21",process.env.REACT_APP_FIREBASE_API_KEY)
 const firebaseConfig = {
-  apiKey: "AIzaSyDgyqeENAkG3bO4jLML7zOp2RUNIfqT2Ns",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY, // "AIzaSyDgyqeENAkG3bO4jLML7zOp2RUNIfqT2Ns",
   authDomain: "zoom-clone-9f3ea.firebaseapp.com",
   projectId: "zoom-clone-9f3ea",
   storageBucket: "zoom-clone-9f3ea.firebasestorage.app",
