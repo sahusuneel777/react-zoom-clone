@@ -7,7 +7,7 @@ import {
   EuiTextColor,
 } from "@elastic/eui";
 import { signOut } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../app/hooks";
@@ -68,7 +68,7 @@ export default function Header() {
         <Link to="/">
           <EuiText>
             <h2 style={{ padding: "0 1vw" }}>
-              <EuiTextColor color="#0b5cff">Zoom</EuiTextColor>
+              <EuiTextColor color="#0b5cff">ZoomIn</EuiTextColor>
             </h2>
           </EuiText>
         </Link>,
@@ -137,7 +137,7 @@ export default function Header() {
         <Link to="/">
           <EuiText>
             <h2 style={{ padding: "0 1vw" }}>
-              <EuiTextColor color="#0b5cff">Zoom</EuiTextColor>
+              <EuiTextColor color="#0b5cff">ZoomIn</EuiTextColor>
             </h2>
           </EuiText>
         </Link>,
@@ -187,13 +187,22 @@ export default function Header() {
   ];
 
   useEffect(() => {
-    if (window.innerWidth < 480) {
-      // sectionSpliced.splice(1, 1);
-      // setSection(sectionSpliced);
-      setIsResponsive(true);
-    }
+    const handleResize = () => {
+      if (window.innerWidth < 480) {
+        setIsResponsive(true);
+      } else {
+        setIsResponsive(false);
+      }
+    };
+  
+    // Run once on mount
+    handleResize();
+  
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
-
+  
   return (
     <>
       <EuiHeader
