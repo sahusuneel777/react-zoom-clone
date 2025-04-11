@@ -7,7 +7,7 @@ import {
   EuiTextColor,
 } from "@elastic/eui";
 import { signOut } from "firebase/auth";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../app/hooks";
